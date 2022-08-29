@@ -43,6 +43,8 @@ namespace Start
             Console.WriteLine("LOAD (Universe Name) - type \"LOAD\" and a universe name");
             Console.WriteLine("ULIST \"ULIST\"");
             Console.WriteLine("DELETE (Universe name) - type \"DELETE\" and a universe name");
+            Console.WriteLine("-------------------------------------");
+            Main();
         }
 
     }
