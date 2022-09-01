@@ -4,10 +4,13 @@ namespace Setup
 {
     public class UniverseConfiguration
     {
+        public static bool runUniverse = false;
+        public static string SaveLocation;
+
         public static void SetSaveLocation()
         {
             Console.WriteLine("Please enter a valid folder path to save all Universe files: ");
-            string? SaveLocation = Console.ReadLine();
+            SaveLocation = Console.ReadLine();
             
             bool FolderExists = Directory.Exists(SaveLocation);
             if(FolderExists == true)
@@ -38,7 +41,8 @@ namespace Setup
 
                     if(ShouldLoadUniverse == "Y")
                     {
-                        Universe.RunningUniverse.Years(UniverseName);
+                        runUniverse = true;
+                        ShouldRun(SaveLocation);
                         break;
                     }
                     if(ShouldLoadUniverse == "N")
@@ -57,8 +61,14 @@ namespace Setup
             else
             {
                 Console.WriteLine("ERROR UNIVERSE NAME DOES NOT MATCH");
-                SetUniverseName();
             }
         } 
+        internal static void ShouldRun(string slocation)
+        {
+            if (runUniverse == true)
+            {
+                USaving.Save.SaveInfo(slocation);
+            }
+        }
     }
 }

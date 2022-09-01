@@ -13,6 +13,12 @@ namespace Universe
                 Console.WriteLine("To advance the Simulation enter the amount of megannums (1 million years) to pass");
                 Console.WriteLine("====================================================================================");
                 Console.WriteLine("");
+                UniverseStats();
+                while (true)
+                {
+                    string YearsToPass = Console.ReadLine();
+                }
+                
                 
             }
 
@@ -39,7 +45,12 @@ namespace Universe
         }
         internal static void UniverseStats()
         {
-            
-        }
+            Console.WriteLine("====================================================================================");
+            Console.WriteLine("NUMBER OF SPECIES: ");
+            Console.WriteLine("NUMBER OF PLANETS: ");
+            Console.WriteLine("NUMBER OF INTELLEGENT LIFE:");
+            Console.WriteLine("YEAR: ");
+            Console.WriteLine("====================================================================================");
+        }  
     }
 }
