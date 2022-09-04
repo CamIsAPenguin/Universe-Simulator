@@ -42,7 +42,7 @@ namespace Setup
                     if(ShouldLoadUniverse == "Y")
                     {
                         runUniverse = true;
-                        ShouldRun(SaveLocation);
+                        ShouldRun(SaveLocation, ConfirmedUniverseName);
                         break;
                     }
                     if(ShouldLoadUniverse == "N")
@@ -63,11 +63,13 @@ namespace Setup
                 Console.WriteLine("ERROR UNIVERSE NAME DOES NOT MATCH");
             }
         } 
-        internal static void ShouldRun(string slocation)
+        internal static void ShouldRun(string slocation, string UName)
         {
             if (runUniverse == true)
             {
-                USaving.Save.SaveInfo(slocation);
+                string ConfigFile = "UniverseConfig.txt";
+                string Contents = "Universe Name: " + UName;
+                USaving.Save.CreateAndWrite(slocation,ConfigFile,Contents);
             }
         }
     }

@@ -11,8 +11,6 @@ namespace Start
             Console.WriteLine("------------------------------");
             Console.WriteLine("NEW - create a new universe");
             Console.WriteLine("LOAD - loads a save universe");
-            Console.WriteLine("ULIST - shows all saved universes");
-            Console.WriteLine("DELETE - delete a saved universe");
             Console.WriteLine("HELP - display information on command usage");
             string? StartCMD = Console.ReadLine();
             StartCMD.ToUpper();
@@ -25,12 +23,6 @@ namespace Start
                 case "LOAD":
 
                 break;
-                case "ULIST":
-
-                break;
-                case "DELETE":
-
-                break;
                 case "HELP":
                     HELP();
                 break;
@@ -40,9 +32,7 @@ namespace Start
         internal static void HELP()
         {
             Console.WriteLine("NEW - just \"NEW\"");
-            Console.WriteLine("LOAD (Universe Name) - type \"LOAD\" and a universe name");
-            Console.WriteLine("ULIST \"ULIST\"");
-            Console.WriteLine("DELETE (Universe name) - type \"DELETE\" and a universe name");
+            Console.WriteLine("LOAD (Universe's Folder Path) - type \"LOAD\" and a universe's folder's path");
             Console.WriteLine("-------------------------------------");
             Main();
         }

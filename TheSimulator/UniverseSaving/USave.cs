@@ -6,15 +6,22 @@ namespace USaving
 {
     public class Save
     {
-        public static async void SaveInfo(string FolderPath)
+        public static void CreateAndWrite(string FolderPath, string FileName, string ContentsToWrite)
         {
-            //Create Specific Univere Configuration
-            string FolderTXT = FolderPath + "\\UniverseConfig.txt"; 
-            Console.WriteLine(FolderTXT);
-            using(FileStream ConfigFile = File.Create(FolderTXT))
-            
-            File.WriteAllLines(FolderPath, );
+            //CreateFile
+            string FilePath = FolderPath + "\\" + FileName; 
+            Console.WriteLine(FileName);
+            //CreateFile
+
+            using(StreamWriter sw = new StreamWriter(FilePath))
+            {
+                sw.WriteLine(ContentsToWrite);
+            }
+            string read = File.ReadAllText(FilePath);
+            Console.WriteLine(read);
             Console.ReadLine();
+
+
             
         }
     }
