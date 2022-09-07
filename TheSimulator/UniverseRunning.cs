@@ -23,22 +23,27 @@ namespace Universe
 
     internal class THEUNIVERSE
     {
+        public static int numofspec, numofplanets, numofintellife, numoflife, numofcivs,numofyears;
         internal static void TheUniverse(string YearsPassing)
         {
             char[] Alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'x', 'x', 'y', 'z'};
             char[] nums = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
             Console.WriteLine("====================================================================================");
             string NumOfSpecStat = Convert.ToString(Console.GetCursorPosition());
-            Console.WriteLine("NUMBER OF SPECIES: ");
+            Console.WriteLine($"NUMBER OF SPECIES: {numofspec}");
             string NumOfPlanetsStats = Convert.ToString(Console.GetCursorPosition());
-            Console.WriteLine("NUMBER OF PLANETS: ");
+            Console.WriteLine($"NUMBER OF PLANETS: {numofplanets}");
+            string NumOfLifeStats = Convert.ToString(Console.GetCursorPosition());
+            Console.WriteLine($"Number OF LIFE: {numoflife}");
             string NumOfIntelLifeStat = Convert.ToString(Console.GetCursorPosition());
-            Console.WriteLine("NUMBER OF INTELLEGENT LIFE:");
+            Console.WriteLine($"NUMBER OF INTELLEGENT LIFE: {numofintellife}");
             string NumOfCivsStat = Convert.ToString(Console.GetCursorPosition());
-            Console.WriteLine("NUMBER OF CIVILIZATIONS:");
+            Console.WriteLine($"NUMBER OF CIVILIZATIONS: {numofcivs}");
             string NumOfYearsStats = Convert.ToString(Console.GetCursorPosition());
-            Console.WriteLine("YEAR: ");
+            Console.WriteLine($"YEAR: {numofyears}");
             Console.WriteLine("====================================================================================");
+
+            Console.WriteLine("CMD: ");
 
             while(true)
             {
@@ -101,6 +106,33 @@ namespace Universe
         public static void ForceSave()
         {
             //create and edit files that are needed
+            if()
+        }
+        public static void ChangeCursorPos(string CursorPos, string WhatToWrite)
+        {
+            string beforePos = Convert.ToString(Console.GetCursorPosition());
+            string[] splitbeforePos = beforePos.Split();
+            int beforelength = splitbeforePos[1].Length;
+            beforelength--;
+            string beforePos1 = splitbeforePos[1].Remove(beforelength,1);
+            beforePos1 = beforePos.Remove(0,1);
+            string beforePos2 = splitbeforePos[0].Remove(0,1);
+            int ibeforePos1 = Convert.ToInt32(beforePos1);
+            int ibeforePos2 = Convert.ToInt32(beforePos2);
+
+
+            string[] splitPos = CursorPos.Split(',');
+            int length = splitPos[1].Length;
+            length--;
+            string Pos1 = splitPos[1].Remove(length,1);
+            Pos1 = Pos1.Remove(0,1);
+            string Pos2 = splitPos[0].Remove(0,1);
+            int iPos1 = Convert.ToInt32(Pos1);
+            int iPos2 = Convert.ToInt32(Pos2);
+            Console.SetCursorPosition(iPos1,iPos2);
+            Console.Write(WhatToWrite);
+            Console.SetCursorPosition(ibeforePos1,ibeforePos2);
+
         }
     }
 
