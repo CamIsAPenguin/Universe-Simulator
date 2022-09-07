@@ -13,14 +13,14 @@ namespace USaving
             Console.WriteLine(FileName);
             //CreateFile
 
+            //WriteFile
             using(StreamWriter sw = new StreamWriter(FilePath))
             {
                 sw.WriteLine(ContentsToWrite);
             }
-            string read = File.ReadAllText(FilePath);
-            Console.WriteLine(read);
+            //string read = File.ReadAllText(FilePath);
             Console.ReadLine();
-
+            //WriteFile
 
             
         }

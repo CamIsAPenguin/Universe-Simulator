@@ -70,6 +70,7 @@ namespace Setup
                 string ConfigFile = "UniverseConfig.txt";
                 string Contents = "Universe Name: " + UName;
                 USaving.Save.CreateAndWrite(slocation,ConfigFile,Contents);
+                Universe.RunningUniverse.Direction(UName);
             }
         }
     }
