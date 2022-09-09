@@ -26,6 +26,10 @@ namespace Start
                 case "HELP":
                     HELP();
                 break;
+                default:
+                    Console.WriteLine("ERROR NOT A VALID COMMAND");
+                    Main();
+                break;
             }
         }
 

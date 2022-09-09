@@ -23,7 +23,7 @@ namespace Universe
 
     internal class THEUNIVERSE
     {
-        public static int numofspec, numofplanets, numofintellife, numoflife, numofcivs,numofyears;
+        public static string numofspec, numofplanets, numofintellife, numoflife, numofcivs,numofyears;
         internal static void TheUniverse(string YearsPassing)
         {
             char[] Alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'x', 'x', 'y', 'z'};
@@ -43,7 +43,7 @@ namespace Universe
             Console.WriteLine($"YEAR: {numofyears}");
             Console.WriteLine("====================================================================================");
 
-            Console.WriteLine("CMD: ");
+            Console.Write("CMD: ");
 
             while(true)
             {
@@ -59,6 +59,10 @@ namespace Universe
                     if(CMD.Contains(currentletter))
                     {
                         Console.WriteLine("ERROR, PLEASE ENTER A VALID COMMAND");
+                    }
+                    if(CMD == "s")
+                    {
+                        ForceSave();
                     }
                     if(CMD.Contains(currentnum))
                     {
@@ -82,7 +86,7 @@ namespace Universe
                 }
                 if(onlynums = true)
                 {
-                    AdvanceUniverse(CMD);
+                    AdvanceUniverse(CMD, NumOfYearsStats);
                 }
                 else
                 {
@@ -93,9 +97,12 @@ namespace Universe
         }
 
         //advance the simulation
-        public static void AdvanceUniverse(string yearspassing)
+        public static void AdvanceUniverse(string yearspassing, string yearspos)
         {
-            //insert a lot of math here
+            yearspassing = yearspassing + "000,000";
+            numofyears = yearspassing;
+            ChangeCursorPos(yearspos,$"YEAR: {numofyears}");
+
         }
         //advance the simulation
 
@@ -105,8 +112,7 @@ namespace Universe
         }
         public static void ForceSave()
         {
-            //create and edit files that are needed
-            if()
+            
         }
         public static void ChangeCursorPos(string CursorPos, string WhatToWrite)
         {
@@ -117,7 +123,7 @@ namespace Universe
             string beforePos1 = splitbeforePos[1].Remove(beforelength,1);
             beforePos1 = beforePos.Remove(0,1);
             string beforePos2 = splitbeforePos[0].Remove(0,1);
-            int ibeforePos1 = Convert.ToInt32(beforePos1);
+            int ibeforePos1 = Convert.ToInt32(beforePos1); //something broke here
             int ibeforePos2 = Convert.ToInt32(beforePos2);
 
 

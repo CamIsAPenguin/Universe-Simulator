@@ -19,7 +19,6 @@ namespace USaving
                 sw.WriteLine(ContentsToWrite);
             }
             //string read = File.ReadAllText(FilePath);
-            Console.ReadLine();
             //WriteFile
 
             

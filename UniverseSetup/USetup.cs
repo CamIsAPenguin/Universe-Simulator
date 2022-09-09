@@ -47,6 +47,9 @@ namespace Setup
                     }
                     if(ShouldLoadUniverse == "N")
                     {
+                        string ConfigFile = "UniverseConfig.txt";
+                        string Contents = "Universe Name: " + ConfirmedUniverseName;
+                        USaving.Save.CreateAndWrite(SaveLocation,ConfigFile,Contents);
                         Start.Startup.Main();
                         break;
                     }
