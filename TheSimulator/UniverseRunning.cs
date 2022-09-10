@@ -43,17 +43,21 @@ namespace Universe
             Console.WriteLine($"YEAR: {numofyears}");
             Console.WriteLine("====================================================================================");
             Console.WriteLine("");
-            Console.Write("CMD: ");
-            Console.WriteLine("");
             Console.WriteLine("====================================================================================");
             Console.WriteLine("                          Universe Events");
             Console.WriteLine("====================================================================================");
-            Console.Write($"Year 0: Creation of {UniverseName}");
+            Console.WriteLine($"Year 0: Creation of {UniverseName}");
             string Event1Location;
-            Console.Write("");
+            Console.WriteLine("");
             string Event2Location;
-            Console.Write("");
+            Console.WriteLine("");
             string Event3Location;
+            Console.WriteLine("====================================================================================");
+            Console.WriteLine("");
+
+            string CMDLine = Convert.ToString(Console.GetCursorPosition());
+            Console.Write("CMD: ");
+            //Console.WriteLine("");
 
             while(true)
             {
@@ -113,7 +117,6 @@ namespace Universe
             numofyears = yearspassing;
             string beforePos = Convert.ToString(Console.GetCursorPosition());
             ChangeCursorPos(yearspos,beforePos, $"YEAR: {numofyears}");
-
         }
         //advance the simulation
 
@@ -151,10 +154,21 @@ namespace Universe
             Console.SetCursorPosition(iPos2,iPos1);
             Console.Write(WhatToWrite);
             Console.SetCursorPosition(iPos2before,iPos1before);
+            Console.CursorTop--;
+            Console.CursorLeft++;
+            Console.CursorLeft++;
+            Console.CursorLeft++;
+            Console.CursorLeft++;
+            Console.CursorLeft++;
+            Console.Write("    ");
+            Console.CursorLeft--;
+            Console.CursorLeft--;
+            Console.CursorLeft--;
             Console.CursorLeft--;
 
 
         }
+
     }
 
 
