@@ -13,7 +13,7 @@ namespace Universe
                 Console.WriteLine("To advance the Simulation enter the amount of megannums (1 million years) to pass");
                 Console.WriteLine("====================================================================================");
                 Console.WriteLine("");
-                THEUNIVERSE.TheUniverse(YearsToPass);
+                THEUNIVERSE.TheUniverse(YearsToPass, UName);
                 
             
         }
@@ -23,8 +23,8 @@ namespace Universe
 
     internal class THEUNIVERSE
     {
-        public static string numofspec, numofplanets, numofintellife, numoflife, numofcivs,numofyears;
-        internal static void TheUniverse(string YearsPassing)
+        public static string numofspec, numofplanets, numofintellife, numoflife, numofcivs,numofyears = "0", Event1, Event2, Event3;
+        internal static void TheUniverse(string YearsPassing, string UniverseName)
         {
             char[] Alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'x', 'x', 'y', 'z'};
             char[] nums = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -42,8 +42,18 @@ namespace Universe
             string NumOfYearsStats = Convert.ToString(Console.GetCursorPosition());
             Console.WriteLine($"YEAR: {numofyears}");
             Console.WriteLine("====================================================================================");
-
+            Console.WriteLine("");
             Console.Write("CMD: ");
+            Console.WriteLine("");
+            Console.WriteLine("====================================================================================");
+            Console.WriteLine("                          Universe Events");
+            Console.WriteLine("====================================================================================");
+            Console.Write($"Year 0: Creation of {UniverseName}");
+            string Event1Location;
+            Console.Write("");
+            string Event2Location;
+            Console.Write("");
+            string Event3Location;
 
             while(true)
             {
@@ -101,7 +111,8 @@ namespace Universe
         {
             yearspassing = yearspassing + "000,000";
             numofyears = yearspassing;
-            ChangeCursorPos(yearspos,$"YEAR: {numofyears}");
+            string beforePos = Convert.ToString(Console.GetCursorPosition());
+            ChangeCursorPos(yearspos,beforePos, $"YEAR: {numofyears}");
 
         }
         //advance the simulation
@@ -114,17 +125,18 @@ namespace Universe
         {
             
         }
-        public static void ChangeCursorPos(string CursorPos, string WhatToWrite)
+        public static void ChangeCursorPos(string CursorPos, string beforePos, string WhatToWrite)
         {
-            string beforePos = Convert.ToString(Console.GetCursorPosition());
-            string[] splitbeforePos = beforePos.Split();
-            int beforelength = splitbeforePos[1].Length;
-            beforelength--;
-            string beforePos1 = splitbeforePos[1].Remove(beforelength,1);
-            beforePos1 = beforePos.Remove(0,1);
-            string beforePos2 = splitbeforePos[0].Remove(0,1);
-            int ibeforePos1 = Convert.ToInt32(beforePos1); //something broke here
-            int ibeforePos2 = Convert.ToInt32(beforePos2);
+            //beforePos = Convert.ToString(Console.GetCursorPosition());
+            string[] splitPosBefore = beforePos.Split(',');
+            int lengthbefore = splitPosBefore[1].Length;
+            lengthbefore--;
+            string Pos1before = splitPosBefore[1].Remove(lengthbefore,1);
+            Pos1before = Pos1before.Remove(0,1);
+            string Pos2before = splitPosBefore[0].Remove(0,1);
+            int iPos1before = Convert.ToInt32(Pos1before);
+            int iPos2before = Convert.ToInt32(Pos2before);
+
 
 
             string[] splitPos = CursorPos.Split(',');
@@ -135,9 +147,12 @@ namespace Universe
             string Pos2 = splitPos[0].Remove(0,1);
             int iPos1 = Convert.ToInt32(Pos1);
             int iPos2 = Convert.ToInt32(Pos2);
-            Console.SetCursorPosition(iPos1,iPos2);
+
+            Console.SetCursorPosition(iPos2,iPos1);
             Console.Write(WhatToWrite);
-            Console.SetCursorPosition(ibeforePos1,ibeforePos2);
+            Console.SetCursorPosition(iPos2before,iPos1before);
+            Console.CursorLeft--;
+
 
         }
     }
