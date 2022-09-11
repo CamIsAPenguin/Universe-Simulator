@@ -23,7 +23,8 @@ namespace Universe
 
     internal class THEUNIVERSE
     {
-        public static string numofspec, numofplanets, numofintellife, numoflife, numofcivs,numofyears = "0", Event1, Event2, Event3;
+        public static string numofspec, numofplanets, numofintellife, numoflife, numofcivs, Event1, numofyears, Event2, Event3; //numofyears must not be defualt
+        public static bool firstyear;
         internal static void TheUniverse(string UniverseName)
         {
             char[] Alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'x', 'x', 'y', 'z'};
@@ -81,7 +82,7 @@ namespace Universe
                         }
                         else
                         {
-                            AdvanceUniverse(CMD, NumOfYearsStats, CMDLine, UniverseName);
+                            AdvanceUniverse(CMD, NumOfYearsStats, CMDLine, UniverseName, numofyears);
                         }
                     }
                 }
@@ -91,12 +92,26 @@ namespace Universe
         }
 
         //advance the simulation
-        public static void AdvanceUniverse(string yearspassing, string yearspos, string beforepos, string Uname)
+        public static void AdvanceUniverse(string yearspassing, string yearspos, string beforepos, string Uname, string pastyear)
         {
-            Convert.ToInt32(yearspassing);
-            yearspassing = yearspassing + 1000000; //fix this
-            numofyears = yearspassing;
-            ChangeCursorPos(yearspos,beforepos, $"YEAR: {numofyears}", Uname);
+            int passing = Int32.Parse(yearspassing);
+            int Years = passing * 100000;
+            if (numofyears != "0")
+            {
+                int years = Int32.Parse(numofyears);
+                int CombinedYears = Years + years;
+                ChangeCursorPos(yearspos, beforepos, $"YEAR: {CombinedYears}", Uname);
+            }
+            else
+            {
+                string YearsString = Years.ToString();
+                YearsString = numofyears;
+            }
+
+
+
+
+            ChangeCursorPos(yearspos,beforepos,$"Year: {numofyears}", Uname);
         }
         //advance the simulation
 
