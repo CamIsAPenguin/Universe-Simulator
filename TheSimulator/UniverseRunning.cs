@@ -23,8 +23,9 @@ namespace Universe
 
     internal class THEUNIVERSE
     {
-        public static string numofspec, numofplanets, numofintellife, numoflife, numofcivs, Event1, numofyears, Event2, Event3; //numofyears must not be defualt
+        public static string numofspec, numofplanets, numofintellife, numoflife, numofcivs, Event, Event2, Event3; //numofyears must not be defualt
         public static bool firstyear;
+        public static int numofyears = 0;
         internal static void TheUniverse(string UniverseName)
         {
             char[] Alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'x', 'x', 'y', 'z'};
@@ -61,57 +62,46 @@ namespace Universe
 
             while(true)
             {
-                var CMD = Console.ReadLine();
+                string CMD = Console.ReadLine();
                 CMD.ToLower();
-                for(int i = 0; i < 25; i++)
+                bool result;
+                int a;
+                result = int.TryParse(CMD, out a);
+
+                if(result == true)
                 {
-                    char CurrentLetter  = Alphabet[i];
-                    if(CMD.Contains(CurrentLetter))
-                    {
-                        Console.Write("ERROR");
-                    }
-                    else
-                    {
-                        if(CMD == "q")
-                        {
-                            Quit();
-                        }
-                        if(CMD == "s")
-                        {
-                            ForceSave();
-                        }
-                        else
-                        {
-                            AdvanceUniverse(CMD, NumOfYearsStats, CMDLine, UniverseName, numofyears);
-                        }
-                    }
+                    int YearsPassing = Int32.Parse(CMD);
+                    AdvanceUniverse(YearsPassing, NumOfYearsStats, CMDLine, UniverseName, numofyears);
                 }
+                else if(CMD == "s")
+                {
+                    ForceSave();
+                }
+                else if(CMD == "q")
+                {
+                    Quit();
+                }
+                else
+                {
+                    Console.Clear();
+                    TheUniverse(UniverseName);
+                }
+                
 
             }
 
         }
 
         //advance the simulation
-        public static void AdvanceUniverse(string yearspassing, string yearspos, string beforepos, string Uname, string pastyear)
+        public static void AdvanceUniverse(int yearspassing, string yearspos, string beforepos, string Uname, int pastyear)
         {
-            int passing = Int32.Parse(yearspassing);
-            int Years = passing * 100000;
-            if (numofyears != "0")
-            {
-                int years = Int32.Parse(numofyears);
-                int CombinedYears = Years + years;
-                ChangeCursorPos(yearspos, beforepos, $"YEAR: {CombinedYears}", Uname);
-            }
-            else
-            {
-                string YearsString = Years.ToString();
-                YearsString = numofyears;
-            }
+            //Error in this method
+            int passingyear = yearspassing * 1000000;
+            int PastYear = pastyear * 1000000;
+            int newyear = passingyear + PastYear;
 
-
-
-
-            ChangeCursorPos(yearspos,beforepos,$"Year: {numofyears}", Uname);
+            numofyears = newyear;
+            ChangeCursorPos(yearspos, beforepos, $"YEAR: {numofyears}", Uname);
         }
         //advance the simulation
 
