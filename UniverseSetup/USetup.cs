@@ -48,7 +48,10 @@ namespace Setup
                     if(ShouldLoadUniverse == "N")
                     {
                         string ConfigFile = "UniverseConfig.txt";
+                        string UniverseNums = "UniverseNums.txt";
                         string Contents = "Universe Name: " + ConfirmedUniverseName;
+                        string UniverseNumsContents = "Year: 0";
+                        USaving.Save.CreateAndWrite(SaveLocation, UniverseNums, UniverseNumsContents);
                         USaving.Save.CreateAndWrite(SaveLocation,ConfigFile,Contents);
                         Start.Startup.Main();
                         break;
@@ -73,7 +76,12 @@ namespace Setup
                 string ConfigFile = "UniverseConfig.txt";
                 string Contents = "Universe Name: " + UName;
                 USaving.Save.CreateAndWrite(slocation,ConfigFile,Contents);
+                string UNums = "UniverseNums.txt";
+                string UNumsContents = "Years: 0" + Environment.NewLine + "NumOfSpecies: 0";
+                USaving.Save.CreateAndWrite(slocation, UNums, UNumsContents);
+            
                 Universe.RunningUniverse.Direction(UName);
+                Universe.THEUNIVERSE.GetFolderPath(slocation);
             }
         }
     }

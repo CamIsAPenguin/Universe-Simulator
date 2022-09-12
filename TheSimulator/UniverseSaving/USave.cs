@@ -20,8 +20,11 @@ namespace USaving
             }
             //string read = File.ReadAllText(FilePath);
             //WriteFile
-
-            
+        }
+        public static void ReadFile(string FolderPath, string FileName, string ContentsToWrite)
+        {
+            string FilePath = FolderPath + "\\" + FileName;
+            string read = File.ReadAllText(FilePath);
         }
     }
 }

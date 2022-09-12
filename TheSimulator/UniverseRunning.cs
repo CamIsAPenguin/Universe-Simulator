@@ -23,9 +23,14 @@ namespace Universe
 
     internal class THEUNIVERSE
     {
+        public static void GetFolderPath(string Folder)
+        {
+            //FolderPath = Folder;
+        }
+        //public static string FolderPath, ;
         public static string numofspec, numofplanets, numofintellife, numoflife, numofcivs, Event, Event2, Event3; //numofyears must not be defualt
         public static bool firstyear;
-        public static int numofyears = 0;
+        public static string numofyears = "0";
         internal static void TheUniverse(string UniverseName)
         {
             char[] Alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'x', 'x', 'y', 'z'};
@@ -70,7 +75,7 @@ namespace Universe
 
                 if(result == true)
                 {
-                    int YearsPassing = Int32.Parse(CMD);
+                    double YearsPassing = Double.Parse(CMD);
                     AdvanceUniverse(YearsPassing, NumOfYearsStats, CMDLine, UniverseName, numofyears);
                 }
                 else if(CMD == "s")
@@ -93,15 +98,9 @@ namespace Universe
         }
 
         //advance the simulation
-        public static void AdvanceUniverse(int yearspassing, string yearspos, string beforepos, string Uname, int pastyear)
+        public static void AdvanceUniverse(double yearspassing, string yearspos, string beforepos, string Uname, string pastyear)
         {
-            //Error in this method
-            int passingyear = yearspassing * 1000000;
-            int PastYear = pastyear * 1000000;
-            int newyear = passingyear + PastYear;
-
-            numofyears = newyear;
-            ChangeCursorPos(yearspos, beforepos, $"YEAR: {numofyears}", Uname);
+            //USaving.Save.ReadFile(FolderPath, );
         }
         //advance the simulation
 
