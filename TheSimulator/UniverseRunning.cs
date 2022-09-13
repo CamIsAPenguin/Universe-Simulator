@@ -23,12 +23,9 @@ namespace Universe
 
     internal class THEUNIVERSE
     {
-        public static void GetFolderPath(string Folder)
-        {
-            //FolderPath = Folder;
-        }
-        //public static string FolderPath, ;
-        public static string numofspec, numofplanets, numofintellife, numoflife, numofcivs, Event, Event2, Event3; //numofyears must not be defualt
+        
+        public static string FolderPath, ConfigFile, UNumsFile, CivilizationsFiles;
+        public static string numofspec, numofplanets, numofintellife, numofcivs, Event, Event2, Event3;
         public static bool firstyear;
         public static string numofyears = "0";
         internal static void TheUniverse(string UniverseName)
@@ -40,8 +37,6 @@ namespace Universe
             Console.WriteLine($"NUMBER OF SPECIES: {numofspec}");
             string NumOfPlanetsStats = Convert.ToString(Console.GetCursorPosition());
             Console.WriteLine($"NUMBER OF PLANETS: {numofplanets}");
-            string NumOfLifeStats = Convert.ToString(Console.GetCursorPosition());
-            Console.WriteLine($"Number OF LIFE: {numoflife}");
             string NumOfIntelLifeStat = Convert.ToString(Console.GetCursorPosition());
             Console.WriteLine($"NUMBER OF INTELLEGENT LIFE: {numofintellife}");
             string NumOfCivsStat = Convert.ToString(Console.GetCursorPosition());
@@ -76,7 +71,7 @@ namespace Universe
                 if(result == true)
                 {
                     double YearsPassing = Double.Parse(CMD);
-                    AdvanceUniverse(YearsPassing, NumOfYearsStats, CMDLine, UniverseName, numofyears);
+                    AdvanceUniverse(YearsPassing, NumOfYearsStats, CMDLine, UniverseName, numofyears, FolderPath, UNumsFile);
                 }
                 else if(CMD == "s")
                 {
@@ -98,9 +93,16 @@ namespace Universe
         }
 
         //advance the simulation
-        public static void AdvanceUniverse(double yearspassing, string yearspos, string beforepos, string Uname, string pastyear)
+        public static void AdvanceUniverse(double yearspassing, string yearspos, string beforepos, string Uname, string pastyear, string FolderPath, string numfile)
         {
-            //USaving.Save.ReadFile(FolderPath, );
+            string filecontents = USaving.Save.ReadFile(FolderPath, numfile);
+            int endline = filecontents.IndexOf("Yearsendline");
+            endline--;
+            char line = filecontents[endline];
+            Console.WriteLine(line);
+            
+
+
         }
         //advance the simulation
 

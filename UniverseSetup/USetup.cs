@@ -73,15 +73,32 @@ namespace Setup
         {
             if (runUniverse == true)
             {
+                //Config files
                 string ConfigFile = "UniverseConfig.txt";
-                string Contents = "Universe Name: " + UName;
+                string Contents = "Universe Name: " + UName + " endline";
                 USaving.Save.CreateAndWrite(slocation,ConfigFile,Contents);
+                //Config files
+
+                //UNums files
                 string UNums = "UniverseNums.txt";
-                string UNumsContents = "Years: 0" + Environment.NewLine + "NumOfSpecies: 0";
+                string UNumsContents = "Start Years: 0 Yearsendline" + Environment.NewLine + "Start NumOfSpecies: 0 Speciesendline" + Environment.NewLine + " Start NUMOfPlanets: 0 PlanetsendLine" + Environment.NewLine + "Start NUMofIntelLife: 0 IntelLifeendline" + Environment.NewLine + "Start NumOfCivilizations: 0 Civsendline";
                 USaving.Save.CreateAndWrite(slocation, UNums, UNumsContents);
-            
+                //UNums files
+
+                //CivilizationsFiles
+                string CivsFiles = "UniverseCivs.txt";
+                string CivsFilesContents = "not civs endline";
+                USaving.Save.CreateAndWrite(slocation, CivsFiles, CivsFilesContents);
+                //CivilizationsFiles
+
+                
+
+                //set universe files
+                Universe.THEUNIVERSE.ConfigFile = ConfigFile;
+                Universe.THEUNIVERSE.UNumsFile = UNums;
+                Universe.THEUNIVERSE.CivilizationsFiles = CivsFiles;
+
                 Universe.RunningUniverse.Direction(UName);
-                Universe.THEUNIVERSE.GetFolderPath(slocation);
             }
         }
     }

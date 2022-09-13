@@ -21,10 +21,13 @@ namespace USaving
             //string read = File.ReadAllText(FilePath);
             //WriteFile
         }
-        public static void ReadFile(string FolderPath, string FileName, string ContentsToWrite)
+        public static string ReadFile(string FolderPath, string FileName)
         {
+            //error here
             string FilePath = FolderPath + "\\" + FileName;
             string read = File.ReadAllText(FilePath);
+
+            return read;
         }
     }
 }
