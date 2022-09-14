@@ -95,11 +95,8 @@ namespace Universe
         //advance the simulation
         public static void AdvanceUniverse(double yearspassing, string yearspos, string beforepos, string Uname, string pastyear, string FolderPath, string numfile)
         {
-            string filecontents = USaving.Save.ReadFile(FolderPath, numfile);
-            int endline = filecontents.IndexOf("Yearsendline");
-            endline--;
-            char line = filecontents[endline];
-            Console.WriteLine(line);
+            string FileName = USaving.Save.GetFile(FolderPath, numfile);            
+            LoadFile.FileLoad.LoadYears(FileName);
             
 
 

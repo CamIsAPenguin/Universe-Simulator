@@ -97,7 +97,7 @@ namespace Setup
                 Universe.THEUNIVERSE.ConfigFile = ConfigFile;
                 Universe.THEUNIVERSE.UNumsFile = UNums;
                 Universe.THEUNIVERSE.CivilizationsFiles = CivsFiles;
-
+                Universe.THEUNIVERSE.FolderPath = slocation;
                 Universe.RunningUniverse.Direction(UName);
             }
         }
