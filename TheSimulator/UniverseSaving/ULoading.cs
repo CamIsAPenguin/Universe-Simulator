@@ -16,19 +16,14 @@ namespace LoadFile
                 char line = filecontents[i];
                 if(line == ' ')
                 {
-                    //Console.WriteLine(years);
                     break;
                 }
                 else
                 {
-                    char years;
-                    years = line;
-                    //years = years + years;
+                    char[] FinalYears = {line};
+                    
                 }
             }
-            
-
-            //char line = filecontents[StartLine];
             
         }
     }
