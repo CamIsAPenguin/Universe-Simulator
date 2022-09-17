@@ -1,7 +1,7 @@
 using System;
 namespace LoadFile
 {
-    public class FileLoad
+    public class LoadYear
     {
         public static char[] LoadYears(string FileName)
         {
@@ -9,19 +9,41 @@ namespace LoadFile
             string filecontents = File.ReadAllText(FileName);
             int StartLine = filecontents.IndexOf("Start Years");
             StartLine = StartLine+13;
-
-            int Years = StartLine;
-
+            char[] currentline = {filecontents[StartLine]};
+            StartLine++;
+            
             while(true)
             {
-                char line = filecontents[Years];
-                Years++;
-                char[] FinalYears = {line};
-                if(line != '.')
+
+                int amountofyears = StartLine;
+                amountofyears++;
+                if(currentline.Contains('.'))
                 {
-                    return FinalYears;
+                    
+                    while(true)
+                    {
+                        char[] NumOfYears = new char[amountofyears];
+                        int i = 1;
+                        string FileContents = File.ReadAllText(FileName);
+                        int startline = filecontents.IndexOf("Start Years");
+                        startline = startline+13;
+
+                        while(true)
+                        {
+                            NumOfYears[i] = filecontents[startline];
+                            startline++;
+                            i++;
+                            if(i != amountofyears)
+                            {
+                                return NumOfYears;
+                            }
+                        }
+                        
+                    }
                 }
             }
+
+            
             
         }
     }

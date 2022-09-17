@@ -96,9 +96,9 @@ namespace Universe
         public static void AdvanceUniverse(double yearspassing, string yearspos, string beforepos, string Uname, string pastyear, string FolderPath, string numfile)
         {
             string FileName = USaving.Save.GetFile(FolderPath, numfile);            
-            char[] x = LoadFile.FileLoad.LoadYears(FileName);
+            char[] x = LoadFile.LoadYear.LoadYears(FileName);
             //load, save, change, repeat
-            Console.WriteLine(x[0]);
+            Console.WriteLine(x);
 
 
         }
