@@ -5,23 +5,19 @@ namespace LoadFile
     {
         public static char[] LoadYears(string FileName)
         {
-            //not getting all the nums
+            //only been getting the first number
             string filecontents = File.ReadAllText(FileName);
             int StartLine = filecontents.IndexOf("Start Years");
             StartLine = StartLine+13;
-            int Years = StartLine;
-            
 
-            for(int i = Years; true ; i++)
+            int Years = StartLine;
+
+            while(true)
             {
-                
-                char line = filecontents[i];
+                char line = filecontents[Years];
+                Years++;
                 char[] FinalYears = {line};
-                if(line == ' ')
-                {
-                    return FinalYears;
-                }
-                else
+                if(line != '.')
                 {
                     return FinalYears;
                 }

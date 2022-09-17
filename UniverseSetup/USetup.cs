@@ -81,7 +81,7 @@ namespace Setup
 
                 //UNums files
                 string UNums = "UniverseNums.txt";
-                string UNumsContents = "Start Years: 100 Yearsendline" + Environment.NewLine + "Start NumOfSpecies: 0 Speciesendline" + Environment.NewLine + " Start NUMOfPlanets: 0 PlanetsendLine" + Environment.NewLine + "Start NUMofIntelLife: 0 IntelLifeendline" + Environment.NewLine + "Start NumOfCivilizations: 0 Civsendline";
+                string UNumsContents = "Start Years: 100. Yearsendline" + Environment.NewLine + "Start NumOfSpecies: 0 Speciesendline" + Environment.NewLine + " Start NUMOfPlanets: 0 PlanetsendLine" + Environment.NewLine + "Start NUMofIntelLife: 0 IntelLifeendline" + Environment.NewLine + "Start NumOfCivilizations: 0 Civsendline";
                 USaving.Save.CreateAndWrite(slocation, UNums, UNumsContents);
                 //UNums files
 
