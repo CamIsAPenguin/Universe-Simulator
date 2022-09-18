@@ -3,47 +3,41 @@ namespace LoadFile
 {
     public class LoadYear
     {
-        public static char[] LoadYears(string FileName)
+        public static void LoadYears(string FileName)
         {
             //only been getting the first number
             string filecontents = File.ReadAllText(FileName);
             int StartLine = filecontents.IndexOf("Start Years");
             StartLine = StartLine+13;
-            char[] currentline = {filecontents[StartLine]};
-            StartLine++;
+            char currentline = filecontents[StartLine];
             
             while(true)
             {
-
-                int amountofyears = StartLine;
-                amountofyears++;
-                if(currentline.Contains('.'))
+                currentline = filecontents[StartLine];
+                StartLine++;
+                int amountofnums = 0;
+                amountofnums++;
+                if(currentline == '.')
                 {
-                    
-                    while(true)
-                    {
-                        char[] NumOfYears = new char[amountofyears];
-                        int i = 1;
-                        string FileContents = File.ReadAllText(FileName);
-                        int startline = filecontents.IndexOf("Start Years");
-                        startline = startline+13;
-
-                        while(true)
-                        {
-                            NumOfYears[i] = filecontents[startline];
-                            startline++;
-                            i++;
-                            if(i != amountofyears)
-                            {
-                                return NumOfYears;
-                            }
-                        }
-                        
-                    }
+                    getyears(amountofnums, FileName);
                 }
             }
+        }
+        private static void getyears(int amountofnums, string filename)
+        {
+            string contents = File.ReadAllText(filename);
+            int startLine = contents.IndexOf("Start Years");
+            startLine = startLine+13;
+            char[] years;
 
-            
+            char[] CurrentLine = {contents[startLine]};
+            years = CurrentLine;
+
+
+            for(int i = 1; i != amountofnums; i++)
+            {
+                //add to years here
+            }
             
         }
     }
