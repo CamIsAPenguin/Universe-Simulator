@@ -3,7 +3,7 @@ namespace LoadFile
 {
     public class LoadYear
     {
-        public static void LoadYears(string FileName)
+        public static char[] LoadYears(string FileName)
         {
             //only been getting the first number
             string filecontents = File.ReadAllText(FileName);
@@ -19,25 +19,31 @@ namespace LoadFile
                 amountofnums++;
                 if(currentline == '.')
                 {
-                    getyears(amountofnums, FileName);
+                    char[] years = getyears(amountofnums, FileName);
+                    return years;
                 }
             }
         }
-        private static void getyears(int amountofnums, string filename)
+        private static char[] getyears(int amountofnums, string filename)
         {
             string contents = File.ReadAllText(filename);
             int startLine = contents.IndexOf("Start Years");
             startLine = startLine+13;
-            char[] years;
+            char[] years = new char[amountofnums];
 
-            char[] CurrentLine = {contents[startLine]};
-            years = CurrentLine;
+            
 
 
-            for(int i = 1; i != amountofnums; i++)
+            for(int i = 0; i != amountofnums; i++)
             {
                 //add to years here
+                char CurrentLine = contents[startLine];
+                startLine++;
+                years[i] = CurrentLine;
             }
+            return years;
+
+            
             
         }
     }
