@@ -32,6 +32,14 @@ namespace Universe
         public static string numofyears = "0";
         internal static void TheUniverse(string UniverseName)
         {
+            string FileN = USaving.Save.GetFile(FolderPath, UNumsFile);            
+            string o = LoadFile.LoadYear.LoadYears(FileN);
+            string years = o.Remove(0,2);
+            numofyears = years;
+
+
+
+
             char[] Alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'x', 'x', 'y', 'z'};
             char[] nums = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
             Console.WriteLine("====================================================================================");
@@ -100,7 +108,11 @@ namespace Universe
             string FileName = USaving.Save.GetFile(FolderPath, numfile);            
             string x = LoadFile.LoadYear.LoadYears(FileName);
             //load, save, change, repeat
-            Console.WriteLine(x);
+            string year = x.Remove(0,2);
+            numofyears = year;
+            ChangeCursorPos(yearspos,beforepos,$"YEAR: {numofyears}", Uname);
+            //rewrite file with new saved year
+            //USaving.Save.CreateAndWrite()
 
 
         }

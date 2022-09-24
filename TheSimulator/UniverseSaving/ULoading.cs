@@ -36,7 +36,7 @@ namespace LoadFile
             
 
 
-            for(int i = 0; i != amountofnums; i++)
+            for(int i = 1; i != amountofnums; i++)
             {
                 //add to years here
                 char CurrentLine = contents[startLine];
@@ -44,11 +44,9 @@ namespace LoadFile
                 years[i] = CurrentLine;
             }
             var count = years.Count();
-            for(int b = count; b < count; b--) //something wrong here
+            for(int b = 0; b != count; b++) //something wrong here
             {
                 string x = Convert.ToString(years[b]);
-                Console.WriteLine(x);
-                Console.WriteLine(FinalYear);
                 FinalYear += x;
             }
             return FinalYear;
